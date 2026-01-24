@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function getComputerChoice(){
+            let randomNum = Math.floor(Math.random() * 3) + 1;
+            let result;
+
+            switch(randomNum){
+
+                case 1: 
+                    result = "rock"
+                    break;
+                case 2:
+                    result = "paper"
+                    break;
+                case 3:
+                    result = "scissors"
+                    break;
+            }
+
+            return result;
+        }
+
+        function getHumanChoice(){
+            let choice = prompt("Pick between: (rock)(paper)(scissors)", "");
+        }
+
+    </script>
+</body>
+</html>
