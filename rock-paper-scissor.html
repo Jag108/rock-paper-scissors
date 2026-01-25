@@ -48,12 +48,12 @@
                 if(humanChoice === "rock" 
                 && computerChoice === "paper"){
                     console.log("You Lose! Paper beats Rock");
-                    computerScore++;
+                    ++computerChoice;
                 }
                 else if(humanChoice === "rock"
                 && computerChoice === "scissors"){
                     console.log("You Win! Rock beats Scissors");                
-                    humanScore++;
+                    ++humanChoice;
                 }
                 else if(humanChoice === "rock"
                 && computerChoice === "rock"){
@@ -64,12 +64,12 @@
                 if(humanChoice === "paper" 
                 && computerChoice === "rock"){
                     console.log("You Win! Paper beats Rock");
-                    humanScore++;
+                    ++humanChoice;
                 }
                 else if(humanChoice === "paper"
                 && computerChoice === "scissors"){
                     console.log("You Lose! Scissors beats Paper");                
-                    computerScore++;
+                    ++computerChoice;
                 }
                 else if(humanChoice === "paper"
                 && computerChoice === "paper"){
@@ -80,27 +80,44 @@
                 if(humanChoice === "scissors" 
                 && computerChoice === "rock"){
                     console.log("You Lose! Rock beats Paper");
-                    computerScore++;
+                    ++computerChoice;
                 }
                 else if(humanChoice === "scissors"
                 && computerChoice === "paper"){
                     console.log("You Win! Scissors beats Paper");                
-                    humanScore++;
+                    ++humanChoice;
                 }
                 else if(humanChoice === "scissors"
                 && computerChoice === "scissors"){
                     console.log("It's a Draw! Scissors clashes with Scissors");                
                 }
-                return {
-                    humanScore, computerScore
-                }
+
+                return humanChoice;
+                return computerChoice;
             }
+            //Have different variable for each round
+            const humanSelection1 = getHumanChoice();
+            const computerSelection1 = getComputerChoice();
+
+            const humanSelection2 = getHumanChoice();
+            const computerSelection2 = getComputerChoice();
+
+            const humanSelection3 = getHumanChoice();
+            const computerSelection3 = getComputerChoice();
+
+            const humanSelection4 = getHumanChoice();
+            const computerSelection4 = getComputerChoice();
+
+            const humanSelection5 = getHumanChoice();
+            const computerSelection5 = getComputerChoice();
             
-            const humanSelection = getHumanChoice();
-            const computerSelection = getComputerChoice();
+            playRound(humanSelection1, computerSelection1);
+            playRound(humanSelection2, computerSelection2);
+            playRound(humanSelection3, computerSelection3);
+            playRound(humanSelection4, computerSelection4);
+            playRound(humanSelection5, computerSelection5);
+            console.log(humanScore + " " + computerScore);
             
-            playRound(humanSelection, computerSelection);
-            console.log("Human Score: " + humanScore + " " + "Computer Score: " + computerScore);
         }
 
     </script>
