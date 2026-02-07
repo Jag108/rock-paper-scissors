@@ -9,10 +9,24 @@
     <button id="rock">Rock</button>
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
+    <div id="gameResult"></div>
     <script>
         const buttons = document.querySelectorAll("button");
+        const div = document.querySelector("#gameResult");
 
-        //code here
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                let select = button.id;
+                let result = playRound(select, getComputerChoice());
+
+                div.textContent = result;
+                if(userScore === 5){
+                    div.textContent = "THE HUMAN WINS! Score: " + userScore;
+                }else if(compScore === 5){
+                    div.textContent = "THE COMPUTER WINS! Score: " + compScore;
+                }
+            });
+        });
 
         function getComputerChoice(){
             let randomNum = Math.floor(Math.random() * 3) + 1;
@@ -34,33 +48,21 @@
             return result;
         }
         
-        function getHumanChoice(){
-            let choice = prompt("Pick between: (Rock) (Paper) (Scissors)", "");
-            return choice.toLowerCase();
-        }
-
-        
-        function playGame(){    
-            if(humanScore > computerScore){
-                console.log("THE HUMAN WINS THE GAME!");
-            }
-            else{
-                console.log("THE COMPUTER WINS THE GAME!");
-            }          
-        }
-        
-        let humanScore = 0;
-        let computerScore = 0;
+        let userScore = 0;
+        let compScore = 0;
         function playRound(humanChoice, computerChoice){
-
-        return result = (humanChoice === "rock" && 
-                        computerChoice === "scissors") ? "You beat Scissors!" :
+            
+            return result = (humanChoice === "rock" && 
+                        computerChoice === "scissors") ? "You Won!\nUser Score: " + 
+                        ++userScore :
                         (humanChoice === "paper" && 
-                        computerChoice === "rock") ? "You beat Rock!" : 
+                        computerChoice === "rock") ? "You Won!\nUser Score: " + 
+                        ++userScore : 
                         (humanChoice === "scissors" && 
-                        computerChoice === "paper") ? "You beat Paper!" :
+                        computerChoice === "paper") ? "You Won!\nUser Score: " + 
+                        ++userScore :
                         (humanChoice === computerChoice) ? "It's a Draw" : 
-                        "YOU LOSE TO " + computerChoice.toUpperCase() + "!";
+                        "YOU LOSE!\nComputer Score: " + ++compScore;
         }
         </script>
 </body>
