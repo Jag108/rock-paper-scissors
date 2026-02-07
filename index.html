@@ -22,8 +22,12 @@
                 div.textContent = result;
                 if(userScore === 5){
                     div.textContent = "THE HUMAN WINS! Score: " + userScore;
+                    userScore = 0;
+                    compScore = 0;
                 }else if(compScore === 5){
                     div.textContent = "THE COMPUTER WINS! Score: " + compScore;
+                    userScore = 0;
+                    compScore = 0;
                 }
             });
         });
@@ -61,7 +65,8 @@
                         (humanChoice === "scissors" && 
                         computerChoice === "paper") ? "You Won!\nUser Score: " + 
                         ++userScore :
-                        (humanChoice === computerChoice) ? "It's a Draw" : 
+                        (humanChoice === computerChoice) ? "DRAW! User Score: " + userScore + 
+                        " Computer Score: " + compScore: 
                         "YOU LOSE!\nComputer Score: " + ++compScore;
         }
         </script>
